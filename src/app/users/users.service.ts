@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { User } from 'app/model/user.model';
 
 @Injectable()
-export class UsersServiceService {
+export class UsersService {
   usersUrl = 'http://localhost:3000/users';
   constructor(private http: Http) { }
 
@@ -15,5 +15,10 @@ export class UsersServiceService {
       .toPromise()
       .then(response => response.json() as User)
       .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }
