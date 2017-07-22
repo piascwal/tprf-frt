@@ -1,0 +1,12 @@
+.row{
+    margin-top: 2em;
+}
+
+.card{
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.hidden {
+     display:none;
+}

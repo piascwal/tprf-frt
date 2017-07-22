@@ -1,0 +1,18 @@
+<div *ngIf="categories">
+      <div class="form-group">
+         <select class="form-control" [(ngModel)]="selectedCat">
+               <option *ngFor="let categorie of categories" [ngValue]="categorie">
+                     {{categorie.libCat}}
+               </option>            
+         </select>
+      </div>
+      <div class="form-group row">
+            <input class="form-control" type="text" id="libA-text-input" [(ngModel)]="libA" placeholder="Tu préfères">
+      </div>
+      <div class="form-group row">
+            <input class="form-control" type="text" id="libB-text-input" [(ngModel)]="libB" placeholder="Ou">
+      </div>
+      <div class="form-group row">
+      <button type="submit" class="btn btn-primary" (click)="postQuestion()">Valider</button>
+      </div>
+</div>

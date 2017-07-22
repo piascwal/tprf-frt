@@ -1,0 +1,69 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "libA": "sucré",
+      "libB": "salé",
+      "userId": 1,
+      "categorieId": 1,
+      "nbVotes": 45,
+      "nbVotesA": 25,
+      "nbVotesB": 20,
+      "categorie": {
+        "id": 1,
+        "libCat": "Nourriture"
+      },
+      "user": {
+        "id": 1,
+        "nom": "Piasco",
+        "prenom": "Mathieu"
+      }
+    },
+    {
+      "id": 2,
+      "libA": "Mc Do",
+      "libB": "KFC",
+      "userId": 1,
+      "categorieId": 1,
+      "nbVotes": 14,
+      "nbVotesA": 10,
+      "nbVotesB": 4,
+      "categorie": {
+        "id": 1,
+        "libCat": "Nourriture"
+      },
+      "user": {
+        "id": 1,
+        "nom": "Piasco",
+        "prenom": "Mathieu"
+      }
+    },
+    {
+      "id": 2,
+      "libA": "Mc Do",
+      "libB": "KFC",
+      "userId": 1,
+      "categorieId": 1,
+      "nbVotes": 13,
+      "nbVotesA": 10,
+      "nbVotesB": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nom": "Piasco",
+      "prenom": "Mathieu"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "libCat": "Nourriture"
+    },
+    {
+      "id": 2,
+      "libCat": "Corps Humain"
+    }
+  ]
+}
