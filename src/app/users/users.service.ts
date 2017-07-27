@@ -1,20 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http,Headers } from '@angular/http';
 import { User } from 'app/model/user.model';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class UsersService {
-  usersUrl = 'http://localhost:3000/users';
+  private urlEncodeHeader = new Headers({ 'Content-Type': 'application/json' });
+  private usersUrl = 'http://localhost:8080/users';
+
   constructor(private http: Http) { }
 
   
 
-  getUser(id: number): Promise<User> {
-    const url = `${this.usersUrl}/${id}?_expand=categorie&_expand=user`;
+  getUser(id: number): Observable<User> {
+    const url = `${this.usersUrl}/${id}`;
+    console.info(url);
     return this.http.get(url)
-      .toPromise()
-      .then(response => response.json() as User)
-      .catch(this.handleError);
+    .map(response => response.json())
+    .catch(this.handleError);     
+  }
+
+  createUser(user: User) {
+    return this.http.post(this.usersUrl, user, { headers: this.urlEncodeHeader })
+          .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

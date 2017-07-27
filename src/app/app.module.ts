@@ -1,3 +1,4 @@
+import { UsersService } from './users/users.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -32,7 +33,7 @@ import { CategorieService } from 'app/categorie/categorie.service';
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [QuestionsService, CategorieService],
+  providers: [QuestionsService, CategorieService,UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

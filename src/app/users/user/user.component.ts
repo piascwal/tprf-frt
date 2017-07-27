@@ -1,3 +1,4 @@
+import { UsersService } from './../users.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'app/model/user.model';
 
@@ -7,10 +8,15 @@ import { User } from 'app/model/user.model';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  @Input() user: User;
-  constructor() { }
+  user: User;
+  constructor(private userService: UsersService) { }
 
   ngOnInit() {
+    var usertest : User = {"id":1, "firstName":"testfirst", "lastName":"testlast", "email":"yo@yo.com"};
+    this.userService.createUser(usertest).subscribe();
+    this.userService.getUser(1).subscribe(response => console.log(response));
+      this.userService.getUser(1).subscribe(resp => this.user = resp);
+    console.log(this.user);
   }
 
 }
