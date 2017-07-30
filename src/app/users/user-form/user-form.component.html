@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div [hidden]="submitted">
+    <h1> Créer un utilisateur </h1>
+
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+
+      <div class="form-group">
+        <label for="firstName">Prénom</label>
+        <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
+
+        <div [hidden]="firstName.valid" class="alert alert-danger">Le Prénom est obligatoire</div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Nom</label>
+        <input type="text" class="form-control" id="lastName" required [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
+        <div [hidden]="lastName.valid" class="alert alert-danger">Le Nom est obligatoire</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Prénom</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="model.email" name="email">
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Enregistrer</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Nouvel utilisateur créé:</h2>
+    <div class="row">
+      <div class="col-xs-3">Prénom: </div>
+      <div class="col-xs-9  pull-left">{{ model.firstName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Nom: </div>
+      <div class="col-xs-9 pull-left">{{ model.lastName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">eamail: </div>
+      <div class="col-xs-9 pull-left">{{ model.email }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>

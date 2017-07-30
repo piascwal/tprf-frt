@@ -14,7 +14,10 @@ import { QuestionsService } from 'app/questions/questions.service';
 import { AppRoutingModule } from 'app/app-routing/app-routing.module';
 import { UserComponent } from './users/user/user.component';
 import { CreationComponent } from './creation/creation/creation.component';
-import { CategorieService } from 'app/categorie/categorie.service';
+import { CategorieService } from 'app/categories/categorie.service';
+import { UserFormComponent } from './users/user-form/user-form.component';
+import { CategorieFormComponent } from 'app/categories/categorie-form/categorie-form.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { CategorieService } from 'app/categorie/categorie.service';
     ListeQuestionComponent,
     QuestionComponent,
     UserComponent,
-    CreationComponent
+    CreationComponent,
+    UserFormComponent,
+    CategorieFormComponent
   ],
   imports: [
     BrowserModule,

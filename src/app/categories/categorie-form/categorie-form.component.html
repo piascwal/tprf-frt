@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Créer Catégorie</h1>
+  <form>
+    <div class="form-group">
+      <label for="libelle">Libellé de la catégorie</label>
+      <input type="text" class="form-control" id="libelle" required [(ngModel)]="categorie.libelle" name="libelle" #libelle="ngModel">
+      <div [hidden]="libelle.valid" class="alert alert-danger">Le libellé est obligatoire</div>
+    </div>
+  </form>
+</div>

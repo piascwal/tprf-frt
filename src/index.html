@@ -11,7 +11,9 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
- </head>
+<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script> 
+
+</head>
 <body>
   <div id="fb-root"></div>
   <script>
@@ -23,15 +25,11 @@
       version          : 'v2.10'
     });
     FB.AppEvents.logPageView();
-    FB.getLoginStatus( function(response){ if (response.status === 'connected') {
-        // the user is logged in and has authenticated your
-        // app, and response.authResponse supplies
-        // the user's ID, a valid access token, a signed
-        // request, and the time the access token 
-        // and signed request each expire
+    FB.getLoginStatus( function(response){ 
+      if (response.status === 'connected') {
         var uid = response.authResponse.userID;
-        var accessToken = response.authResponse.accessToken;
-        console.log(accessToken);
+        localStorage.setItem('token',response.authResponse.accessToken);
+        localStorage.setItem('uid',uid);
         testAPI();
 
    
@@ -53,33 +51,29 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-   var userId;
    function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name + JSON.stringify(response));
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-        userId=response.id;
     });
+   } 
 
-    FB.api("/"+userId+"/picture",
-    function (response) {
-      console.log(userId);
-      
-      if (response && !response.error) {
-        console.log(JSON.stringify(response));
-      }
+   function printlocal() {
+     console.log(localStorage.getItem('uid'));
+     FB.api('/'+localStorage.getItem('uid')+'/picture',function(response) {
+       console.log(response);
+      document.getElementById('usr').setAttribute('src',response.data.url);
     });
-}
-
-
- 
+   }
 </script>
 <div id="status">
 </div>
 
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<img id='usr'/>
+<button onclick="printlocal()">local</button>
+<div id='fbbut' class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
   <app-root>Loading...</app-root>
 </body>
 </html>

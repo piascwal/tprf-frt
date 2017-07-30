@@ -12,11 +12,11 @@ export class UserComponent implements OnInit {
   constructor(private userService: UsersService) { }
 
   ngOnInit() {
-    var usertest : User = {"id":1, "firstName":"testfirst", "lastName":"testlast", "email":"yo@yo.com"};
-    this.userService.createUser(usertest).subscribe();
-    this.userService.getUser(1).subscribe(response => console.log(response));
-      this.userService.getUser(1).subscribe(resp => this.user = resp);
-    console.log(this.user);
+    //var usertest : User = {"id":1, "firstName":"testfirst", "lastName":"testlast", "email":"yo@yo.com"};
+    //this.userService.createUser(usertest).subscribe();
+    //this.userService.getUser(1).subscribe(response => console.log(response));
+     // this.userService.getUser(1).subscribe(resp => this.user = resp);
+  
   }
 
 }
