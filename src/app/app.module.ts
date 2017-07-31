@@ -17,6 +17,7 @@ import { CreationComponent } from './creation/creation/creation.component';
 import { CategorieService } from 'app/categories/categorie.service';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { CategorieFormComponent } from 'app/categories/categorie-form/categorie-form.component';
+import { UserListComponent } from 'app/users/user-list/user-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CategorieFormComponent } from 'app/categories/categorie-form/categorie-
     UserComponent,
     CreationComponent,
     UserFormComponent,
-    CategorieFormComponent
+    CategorieFormComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

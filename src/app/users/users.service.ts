@@ -12,20 +12,28 @@ export class UsersService {
 
   constructor(private http: Http) { }
 
-  
-
   getUser(id: number): Observable<User> {
     const url = `${this.usersUrl}/${id}`;
-    console.info(url);
     return this.http.get(url)
     .map(response => response.json())
-    .catch(this.handleError);     
+    .catch(this.handleError);
   }
 
   createUser(user: User) {
     return this.http.post(this.usersUrl, user, { headers: this.urlEncodeHeader })
           .catch(this.handleError);
   }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get(this.usersUrl).map(response => response.json())
+    ._catch(this.handleError);
+  }
+
+    removeUser(id: number) {
+      const url = `${this.usersUrl}/${id}`;
+      return this.http.delete(url, { headers: this.urlEncodeHeader } )
+      ._catch(this.handleError);
+    }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
