@@ -1,3 +1,4 @@
+import { ClassementComponent } from './../classement/classement.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'random', component: ListeQuestionComponent },
   { path: 'profile', component: UserComponent },
-  { path: 'creation', component: CreationComponent }
+  { path: 'creation', component: CreationComponent },
+  { path: 'classement', component: ClassementComponent }
 ];
 
 @NgModule({

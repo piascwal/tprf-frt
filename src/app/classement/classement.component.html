@@ -1,0 +1,40 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1> Rank it Now ! </h1>
+    <form (ngSubmit)="onSubmit()" #classementForm="ngForm">
+    <!-- Titre -->
+    <div class="form-group">
+      <label for="titre">Donne un nom à ton Rank</label>
+      <input type="text" class="form-control" id="titre" required [(ngModel)]="classement.titre" name="titre" #titre="ngModel">
+      <div [hidden]="titre.valid" class="alert alert-danger">Allez ! Soit un peu créatif</div>
+    </div>
+    <!-- Durée -->
+    <div class="form-group">
+      <label for="duree">Pendant combien de temps?</label>
+          <div class="list-group" id="duree">
+            <button *ngFor="let duree of durees" type="button" class="list-group-item list-group-item-action" (click)="onClickDuree(duree)" [ngClass]="{active : dureeSelected === duree}">{{duree}}</button>
+          </div>
+          <div [hidden]="dureeSelected !== 'T\'as pas mieux'">
+            Ici il faudrait créer  un formulaire pour définir une durée manuelle
+          </div>     
+    </div>
+    
+
+    <!-- date de début -->
+    <div class="form-group">
+      <label for="debut">A partir de quand ?</label>
+        <div class="list-group" id="debut">
+              <button *ngFor="let debut of debuts" type="button" class="list-group-item list-group-item-action" [ngClass]="{active : debutSelected === debut}" (click)="onClickDebut(debut);">{{debut}}</button>
+        </div> 
+         <div [hidden]="debutSelected !== 'T\'as pas mieux'">
+            Ici il faudrait créer  un formulaire pour définir une date de début manuelle
+        </div>
+    </div>
+   
+
+    <!-- Participants -->
+    <!-- Bonus --> 
+      <button type="submit" class="btn btn-success" [disabled]="!classementForm.form.valid">Enregistrer</button>
+    </form>
+  </div>
+</div>
