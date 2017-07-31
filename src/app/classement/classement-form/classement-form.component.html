@@ -37,4 +37,7 @@
       <button type="submit" class="btn btn-success" [disabled]="!classementForm.form.valid">Enregistrer</button>
     </form>
   </div>
+  <div [hidden]="!submitted">
+    Rank crée
+  </div>
 </div>

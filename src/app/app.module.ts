@@ -18,7 +18,7 @@ import { CategorieService } from 'app/categories/categorie.service';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { CategorieFormComponent } from 'app/categories/categorie-form/categorie-form.component';
 import { UserListComponent } from 'app/users/user-list/user-list.component';
-import { ClassementComponent } from 'app/classement/classement.component';
+import { ClassementFormComponent } from 'app/classement/classement-form/classement-form.component';
 import { ClassementService } from 'app/classement/classement.service';
 
 
@@ -34,7 +34,7 @@ import { ClassementService } from 'app/classement/classement.service';
     UserFormComponent,
     CategorieFormComponent,
     UserListComponent,
-    ClassementComponent
+    ClassementFormComponent
   ],
   imports: [
     BrowserModule,
