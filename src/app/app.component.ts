@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/model/user.model';
+import { AuthService } from "app/core/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,14 @@ import { User } from 'app/model/user.model';
 export class AppComponent implements OnInit {
   title = 'app works!';
   user: User;
-
+    constructor(private auth: AuthService){
+      auth.handleAuthentication();
+    }
    ngOnInit() {
      console.log('getById');
      console.log(document.getElementById('FB'));
      console.log('window[FB]');
-    window['FB'].api('/me',function(response) {
-      console.log('Successful login for: ' + response.name + JSON.stringify(response));
-    }
-    );
-          console.log('localstorage');
+     console.log('localstorage');
      console.log(localStorage);
    }
 }

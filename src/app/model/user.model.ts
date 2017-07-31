@@ -1,6 +1,6 @@
 export class User {
 
-    private id;
+     id;
 
 
     constructor(

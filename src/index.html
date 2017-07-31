@@ -27,9 +27,8 @@
     FB.AppEvents.logPageView();
     FB.getLoginStatus( function(response){ 
       if (response.status === 'connected') {
-        var uid = response.authResponse.userID;
-        localStorage.setItem('token',response.authResponse.accessToken);
-        localStorage.setItem('uid',uid);
+        localStorage.setItem('fb_token_id',response.authResponse.accessToken);
+        localStorage.setItem('fb_uid',response.authResponse.userID);
         testAPI();
 
    

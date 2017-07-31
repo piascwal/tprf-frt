@@ -20,6 +20,9 @@ import { CategorieFormComponent } from 'app/categories/categorie-form/categorie-
 import { UserListComponent } from 'app/users/user-list/user-list.component';
 import { ClassementFormComponent } from 'app/classement/classement-form/classement-form.component';
 import { ClassementService } from 'app/classement/classement.service';
+import { AuthService } from 'app/core/auth.service';
+import { CallbackComponent } from 'app/core/callback/callback.component';
+
 
 
 
@@ -34,7 +37,8 @@ import { ClassementService } from 'app/classement/classement.service';
     UserFormComponent,
     CategorieFormComponent,
     UserListComponent,
-    ClassementFormComponent
+    ClassementFormComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,7 @@ import { ClassementService } from 'app/classement/classement.service';
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [QuestionsService, CategorieService,UsersService, ClassementService],
+  providers: [QuestionsService, CategorieService,UsersService, ClassementService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

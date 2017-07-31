@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Classement } from 'app/model/classement.model';
 import { ClassementService } from "app/classement/classement.service";
 import { User } from "app/model/user.model";
+import { AuthService } from 'app/core/auth.service';
 
 @Component({
   selector: 'app-classement-form',
@@ -17,7 +18,7 @@ export class ClassementFormComponent implements OnInit {
 
   debutSelected: String;
   debuts: string[] = ['Right Now', 'Ce soir minuit', 'Demain 9h', 'T\'as pas mieux'];
-  constructor( private classementService: ClassementService) { }
+  constructor( private classementService: ClassementService, private auth: AuthService) { }
 
   ngOnInit() {
 
@@ -33,14 +34,18 @@ export class ClassementFormComponent implements OnInit {
 
   onSubmit(){
     //TODO : Calculer les dates
-    this.classement.dateDebut = new Date();
-    this.classement.dateFin =  new Date();
-    this.classement.dateFin.setHours(this.classement.dateFin.getHours() + 24) ;
-    let user = new User("prénom","nom","email");
-    this.classement.createur = user;
-    console.log(this.classement);
-    this.classementService.createClassement(this.classement).subscribe(response => console.log(response));
-    this.submitted = true;
+    if(!this.auth.isAuthenticated()) {
+      console.log("authentification requise");
+    } else {
+      this.classement.dateDebut = new Date();
+      this.classement.dateFin =  new Date();
+      this.classement.dateFin.setHours(this.classement.dateFin.getHours() + 24) ;
+      let user = new User("prénom","nom","email");
+      this.classement.createur = user;
+      console.log(this.classement);
+      this.classementService.createClassement(this.classement).subscribe(response => console.log(response));
+      this.submitted = true;
+    }
   }
 
 }
