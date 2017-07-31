@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Classement } from 'app/model/classement.model';
 import { ClassementService } from "app/classement/classement.service";
+import { User } from "app/model/user.model";
 
 @Component({
   selector: 'app-classement-form',
@@ -35,6 +36,8 @@ export class ClassementFormComponent implements OnInit {
     this.classement.dateDebut = new Date();
     this.classement.dateFin =  new Date();
     this.classement.dateFin.setHours(this.classement.dateFin.getHours() + 24) ;
+    let user = new User("prénom","nom","email");
+    this.classement.createur = user;
     console.log(this.classement);
     this.classementService.createClassement(this.classement).subscribe(response => console.log(response));
     this.submitted = true;
