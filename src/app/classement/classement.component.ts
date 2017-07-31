@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Classement } from 'app/model/classement.model';
+import { ClassementService } from "app/classement/classement.service";
 
 @Component({
   selector: 'app-classement',
@@ -14,7 +15,7 @@ export class ClassementComponent implements OnInit {
 
   debutSelected: String;
   debuts: string[] = ['Right Now', 'Ce soir minuit', 'Demain 9h', 'T\'as pas mieux'];
-  constructor() { }
+  constructor( private classementService: ClassementService) { }
 
   ngOnInit() {
 
@@ -33,6 +34,8 @@ export class ClassementComponent implements OnInit {
     this.classement.dateFin =  new Date();
     this.classement.dateFin.setHours(this.classement.dateFin.getHours() + 24) ;
     console.log(this.classement);
+    this.classementService.createClassement(this.classement).subscribe(response => console.log(response));
+    
 
 
   }

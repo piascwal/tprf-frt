@@ -19,6 +19,7 @@ import { UserFormComponent } from './users/user-form/user-form.component';
 import { CategorieFormComponent } from 'app/categories/categorie-form/categorie-form.component';
 import { UserListComponent } from 'app/users/user-list/user-list.component';
 import { ClassementComponent } from 'app/classement/classement.component';
+import { ClassementService } from 'app/classement/classement.service';
 
 
 
@@ -43,7 +44,7 @@ import { ClassementComponent } from 'app/classement/classement.component';
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [QuestionsService, CategorieService,UsersService],
+  providers: [QuestionsService, CategorieService,UsersService, ClassementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
