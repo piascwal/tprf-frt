@@ -1,7 +1,8 @@
+import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/model/user.model';
-import { AuthService } from "app/core/auth.service";
-
+import { AuthService } from 'app/core/auth.service';
+declare var document: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,15 +10,16 @@ import { AuthService } from "app/core/auth.service";
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
+  profile: any;
+  userPicture: String;
   user: User;
-    constructor(private auth: AuthService){
+    constructor(private auth: AuthService) {
       auth.handleAuthentication();
+
+
     }
    ngOnInit() {
-     console.log('getById');
-     console.log(document.getElementById('FB'));
-     console.log('window[FB]');
-     console.log('localstorage');
-     console.log(localStorage);
    }
+
+
 }

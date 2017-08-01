@@ -1,3 +1,4 @@
+import { CallbackComponent } from 'app/core/callback/callback.component';
 import { ClassementFormComponent } from 'app/classement/classement-form/classement-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'creation', component: CreationComponent },
   { path: 'classement', component: ClassementFormComponent },
   { path: 'categorie', component: CategorieFormComponent },
-  { path: 'callback', component: UserComponent }
+  { path: 'callback', component: CallbackComponent }
 ];
 
 @NgModule({

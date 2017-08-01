@@ -22,6 +22,7 @@ import { ClassementFormComponent } from 'app/classement/classement-form/classeme
 import { ClassementService } from 'app/classement/classement.service';
 import { AuthService } from 'app/core/auth.service';
 import { CallbackComponent } from 'app/core/callback/callback.component';
+import { UserDetailComponent } from 'app/users/user-detail/user-detail.component';
 
 
 
@@ -38,7 +39,8 @@ import { CallbackComponent } from 'app/core/callback/callback.component';
     CategorieFormComponent,
     UserListComponent,
     ClassementFormComponent,
-    CallbackComponent
+    CallbackComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
