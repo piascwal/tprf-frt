@@ -1,3 +1,4 @@
+<div *ngIf="auth.isAuthenticated()">
 <div class="panel panel-default profile-area">
   <div class="panel-heading">
     <h3>Profile</h3>
@@ -10,4 +11,5 @@
     </div>
     <pre class="full-profile">{{ profile | json }}</pre>
   </div>
+</div>
 </div>

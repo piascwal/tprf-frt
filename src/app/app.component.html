@@ -12,7 +12,7 @@
           <a class="nav-link" routerLink="/creation"  routerLinkActive="active">Créer</a>
         </li>
           
-         <li>
+         <li *ngIf="auth.isAuthenticated()">
           <a class="nav-link" routerLink="/profile"  routerLinkActive="active">Profile</a>
         </li>
 
@@ -25,9 +25,10 @@
       
       </ul>
        <ul class="nav navbar-nav navbar-right">
+         <li *ngIf="auth.isAuthenticated()">
+           <img id="prof"  src={{userPicture}} style="width: auto; height: 40px"/>
+         </li>
          <li>
-           
-           <img id="prof" *ngIf="auth.isAuthenticated()" src={{userPicture}} style="width: auto; height: 40px"/>
             <button
             class="btn btn-primary btn-margin"
             *ngIf="!auth.isAuthenticated()"
